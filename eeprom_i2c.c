@@ -27,11 +27,11 @@
 ********************************************************************/
 void eeprom_i2c_writeByte(unsigned char address, unsigned char data)
 {   
-    i2c_start(); 							// START command
-    i2c_write(EEPROM_I2C_address & 0xFE); 	// WRITE Command
-    i2c_write(address); 					// Write address
-    i2c_write(data); 						// Write data
-    i2c_stop(); 							// STOP command
+    i2c_start();			
+    i2c_write(EEPROM_I2C_address & 0xFE); 	
+    i2c_write(address);
+    i2c_write(data);
+    i2c_stop();
     
 }
 
@@ -45,13 +45,13 @@ unsigned char eeprom_i2c_readByte(char address)
 {
     unsigned char data = 0xFF;
     
-    i2c_start(); 							// START command
-    i2c_write (EEPROM_I2C_address & 0xFE);  // WRITE Command 
-    i2c_write(address); 					// Write TA Register address
-    i2c_start(); 							// Repeat START
-    i2c_write(EEPROM_I2C_address | 0x01); 	// READ Command
-    data = i2c_read(0); 					// READ 8 bits and Send NAK bit
-    i2c_stop(); 							// STOP command   
+    i2c_start();
+    i2c_write (EEPROM_I2C_address & 0xFE);
+    i2c_write(address);
+    i2c_start();
+    i2c_write(EEPROM_I2C_address | 0x01);
+    data = i2c_read(0);
+    i2c_stop();
       
     return data;
 }
