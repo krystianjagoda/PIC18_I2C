@@ -1,4 +1,4 @@
-# PIC18_I2C
+# PIC18_I2C Library
 Simple I2C Functions for PIC18 Microcontrollers
 
 - Microchip 24AA01H I2C EEPROM
