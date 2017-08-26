@@ -10,8 +10,8 @@
  * Processor:       PIC18F64J11                                         *
  * Compiler:        MPLAB XC8 v1.38                                     *
  * **********************************************************************
- * Description:  Microchip MCP9808 I2C temparature Sensor 		 		*
-*			     - basic functions                     					*
+ * Description:  Microchip MCP9808 I2C temparature Sensor 		*
+*			     - basic functions                     	*
  * *********************************************************************/
 
  
@@ -96,13 +96,13 @@ unsigned int mcp9808_get_temp(unsigned char address){
 
     //Convert the temperature data
     upperByte = upperByte & 0x1F; //Clear flag bits
-    if ((upperByte & 0x10) == 0x10){ 	//TA < 0°C
+    if ((upperByte & 0x10) == 0x10){ 	//TA < 0Â°C
         upperByte = upperByte & 0x0F;
         temperature = (10*(upperByte*16.0 + lowerByte/16.0));
         temp =  temperature;
         temp = (0b1000000000 | temp);
     }
-    else{ 								//TA > 0°C
+    else{ 								//TA > 0Â°C
         temperature = (10*(upperByte*16.0 + lowerByte/16.0));
         temp = temperature;
     }
