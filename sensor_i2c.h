@@ -10,8 +10,8 @@
  * Processor:       PIC18F64J11                                         *
  * Compiler:        MPLAB XC8 v1.38                                     *
  * **********************************************************************
- * Description:  Microchip MCP9808 I2C temparature Sensor 		 		*
-*			     - basic functions                     					*
+ * Description:  Microchip MCP9808 I2C temparature Sensor 		 		      *
+*			     - basic functions                     					              *
  * *********************************************************************/
 
 
