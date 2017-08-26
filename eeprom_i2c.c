@@ -1,7 +1,7 @@
 /************************************************************************
  * Filename:        eeprom_i2c.c                                        *
- * Date:            08/10/2016                                          *
- * File Version:    v1.0                                                *
+ * Date:            08/08/2017                                          *
+ * File Version:    v1.1                                                *
  *                                                                      *
  * Author:          Krystian Jagoda                                     *
  * Email:           krystianjagoda@gmail.com                            *
@@ -19,12 +19,7 @@
 #include "i2c.h"
 
 
-/********************************************************************
-* Function Name: eeprom_i2c_writeByte
-* Return Value: void
-* Parameters: Memory address [0x00-0x7F], data Byte
-* Description: Writes a single byte to specified memory address
-********************************************************************/
+
 void eeprom_i2c_writeByte(unsigned char address, unsigned char data)
 {   
     i2c_start();			
@@ -35,12 +30,7 @@ void eeprom_i2c_writeByte(unsigned char address, unsigned char data)
     
 }
 
-/********************************************************************
-* Function Name: eeprom_i2c_readByte
-* Return Value: data Byte
-* Parameters: Memory address [0x00-0x7F]
-* Description: Writes a single byte from specified memory address
-********************************************************************/
+
 unsigned char eeprom_i2c_readByte(char address)
 {
     unsigned char data = 0xFF;

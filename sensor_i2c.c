@@ -1,7 +1,7 @@
 /************************************************************************
  * Filename:        sensor_i2c.c                                        *
- * Date:            08/10/2016                                          *
- * File Version:    v1.0                                                *
+ * Date:            08/08/2017                                          *
+ * File Version:    v1.1                                                *
  *                                                                      *
  * Author:          Krystian Jagoda                                     *
  * Email:           krystianjagoda@gmail.com                            *
@@ -14,19 +14,13 @@
 *			     - basic functions                     					*
  * *********************************************************************/
 
+ 
 #include <xc.h>
 #include <p18f46j11.h>
 #include "sensor_i2c.h"
 #include "i2c.h"
 
 
-/********************************************************************
-* Function Name: mcp9808_init
-* Return Value: Sensor presence
-* Parameters: Sensor address
-* Description: This function checks the MCP9808sensor presence and 
-* 			   performs sensor initialization
-********************************************************************/
 unsigned char mcp9808_init(unsigned char address){
     unsigned char mfc_id = 0;
     unsigned char sensor_status = 0;
@@ -61,12 +55,7 @@ unsigned char mcp9808_init(unsigned char address){
 }
 
 
-/********************************************************************
-* Function Name: mcp9808_wake
-* Return Value: void
-* Parameters: Sensor address
-* Description: This function wakes up MCP9808 Sensor from sleep
-********************************************************************/
+
 void mcp9808_wake(unsigned char address){
     i2c_start(); 
     i2c_write(address & 0xFE);
@@ -76,12 +65,7 @@ void mcp9808_wake(unsigned char address){
     i2c_stop(); 
 }
 
-/********************************************************************
-* Function Name: mcp9808_sleep
-* Return Value: void
-* Parameters: Sensor address
-* Description: This function puts MCP9808 Sensor into sleep
-********************************************************************/
+
 void mcp9808_sleep(unsigned char address){
     i2c_start(); 
     i2c_write(address & 0xFE);
@@ -93,12 +77,7 @@ void mcp9808_sleep(unsigned char address){
 
 
 
-/********************************************************************
-* Function Name: mcp9808_get_temp
-* Return Value: Temperature in °C
-* Parameters: Sensor address
-* Description: This function reads the temperature data from the sensor
-********************************************************************/
+
 unsigned int mcp9808_get_temp(unsigned char address){
     unsigned int upperByte = 0;
     unsigned int lowerByte = 0;
